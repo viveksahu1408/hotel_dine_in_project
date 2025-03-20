@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient2_bg"
+    tools:context=".RestaurantDetailsActivity">
+
+
+        <TextView
+            android:id="@+id/restaurantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurant Name"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:elevation="20dp"
+                app:cardCornerRadius="10dp"
+                android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+                >
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="600dp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:orientation="vertical"
+            android:padding="10dp"
+            >
+
+        <ImageView
+            android:id="@+id/restaurantImage"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img"
+            />
+
+                <TextView
+                    android:id="@+id/restaurantName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    />
+
+
+        <TextView
+            android:id="@+id/restaurantPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Price: ₹0"/>
+
+        <TextView
+            android:id="@+id/restaurantTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue_700"
+            android:text="Timing: 00:00 - 00:00"/>
+
+        <TextView
+            android:id="@+id/restaurantRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⭐ 0.0"/>
+
+                <TextView
+                    android:id="@+id/restaurantCategories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/purple_500"
+                    android:text="Categories: N/A"/>
+        <TextView
+            android:id="@+id/restaurantDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description: No Data Available"/>
+
+        </LinearLayout>
+</ScrollView>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bookBtn"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#2195F1"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:text="Book Sloat"
+            app:cornerRadius="10dp"
+            android:textColor="#ffff"
+            />
+
+
+
+</LinearLayout>

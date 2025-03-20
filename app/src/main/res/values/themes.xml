@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Base.Theme.PracticeApp" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Disable Dark Mode -->
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+
+    <style name="Theme.PracticeApp" parent="Base.Theme.PracticeApp" />
+</resources>

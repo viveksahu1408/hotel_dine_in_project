@@ -4,11 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Main Content -->
+
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -16,13 +17,12 @@
         android:orientation="vertical"
         android:background="@android:color/white">
 
-        <!-- Toolbar with Menu and Profile Icon -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="4dp"
-            android:padding="10dp">
+            android:padding="5dp">
 
             <!-- Menu Button -->
             <ImageView
@@ -40,21 +40,30 @@
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
                 android:textColor="#352AA8"
-                android:text="Hotel Dine Booking"
+                android:text="Hotel Dine In"
                 android:textStyle="bold"
                 android:layout_marginTop="1dp"
-                android:layout_marginStart="30dp"/>
+                android:layout_marginStart="60dp"/>
 
             <!-- Profile Icon (Align to Right) -->
-            <ImageView
-                android:id="@+id/profileIcon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="30dp"
-                android:src="@drawable/reshot_icon_profile_qx6kdsljc5"
-                android:background="@android:color/transparent"
-                android:contentDescription="Profile Icon"/>
-        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="end"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profileIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/reshot_icon_profile_qx6kdsljc5"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Profile Icon"/>
+
+
+            </LinearLayout>
+               </LinearLayout>
 
         <!-- Horizontal ScrollView for Images -->
         <HorizontalScrollView
@@ -66,6 +75,7 @@
 
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
 
@@ -123,10 +133,19 @@
         </HorizontalScrollView>
 
 
+<!--        <SearchView-->
+<!--            android:id="@+id/searchView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:queryHint="Search items..."-->
+<!--            />-->
+
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Top Restaurents "
+            android:text="Top Restaurents"
             android:padding="8dp"
             android:textColor="#352AA8"
             android:textStyle="bold"
@@ -138,7 +157,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone"/>
-
 
         <!-- RecyclerView for Hotels -->
         <androidx.recyclerview.widget.RecyclerView
@@ -152,6 +170,7 @@
             android:layout_height="wrap_content"
             android:text="Select Category wise food "
             android:padding="2dp"
+            android:layout_marginStart="10sp"
             android:textColor="#352AA8"
             android:layout_marginTop="2dp"
             android:textStyle="bold"

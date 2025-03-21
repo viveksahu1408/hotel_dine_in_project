@@ -25,14 +25,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AddRestaurentActivity"
+            android:name="Restaurents.AddRestaurentActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name="LogSignpackeg.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".forgetPassActivity"
+            android:name="LogSignpackeg.forgetPassActivity"
             android:exported="false"
             android:screenOrientation="fullSensor"
             tools:ignore="DiscouragedApi" />
@@ -41,7 +41,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ResListFCActivity"
+            android:name="Restaurents.ResListFCActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -53,7 +53,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AllResturentActivity"
+            android:name="Restaurents.AllResturentActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -65,7 +65,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RestaurantDetailsActivity"
+            android:name="Restaurents.RestaurantDetailsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -73,7 +73,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RegisterActivity"
+            android:name="LogSignpackeg.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -81,7 +81,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SplashScreen"
+            android:name="LogSignpackeg.SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

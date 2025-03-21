@@ -1,4 +1,4 @@
-package com.example.practiceapp
+package Restaurents
 
 import ApiClasses.RetrofitClient
 import android.annotation.SuppressLint
@@ -8,13 +8,14 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.practiceapp.R
+import com.example.practiceapp.databinding.ActivityAddRestaurentBinding
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class AddRestaurentActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityAddRestaurentBinding
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText: EditText
     private lateinit var phoneEditText: EditText
@@ -28,7 +29,8 @@ class AddRestaurentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_add_restaurent)
+        binding = ActivityAddRestaurentBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         nameEditText = findViewById(R.id.editTextName)
         emailEditText = findViewById(R.id.editTextEmail)
@@ -58,7 +60,7 @@ class AddRestaurentActivity : AppCompatActivity() {
         val openTime = openTimeEditText.text.toString()
         val closeTime = closeTimeEditText.text.toString()
 
-         RetrofitClient.instance.addRestaurant(
+        RetrofitClient.instance.addRestaurant(
             restaurantName = name,
             restaurantEmail = email,
             restaurantPhoneNumber = phone,
@@ -80,8 +82,6 @@ class AddRestaurentActivity : AppCompatActivity() {
 
 
     }
-
-
 
 
 }

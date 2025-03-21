@@ -18,6 +18,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
+import java.util.regex.Pattern
 
 class UpdateProfileActivity : AppCompatActivity() {
 
@@ -36,12 +37,27 @@ class UpdateProfileActivity : AppCompatActivity() {
 
         sessionManager = SessionManager(this)
 
+
+        val firstName = intent.getStringExtra("first_name") ?: ""
+        val lastName = intent.getStringExtra("last_name") ?: ""
+        val middleName = intent.getStringExtra("middle_name") ?: ""
+        val email = intent.getStringExtra("email") ?: ""
+        val phoneNumber = intent.getStringExtra("phone_number") ?: ""
+        //val profileImage = intent.getStringExtra("profile_image") // optional
+
+
+        binding.etFirstName.setText(firstName)
+        binding.etLastName.setText(lastName)
+        binding.etMiddleName.setText(middleName)
+        binding.etEmail.setText(email)
+        binding.etPhoneNumber.setText(phoneNumber)
+
         binding.ivProfileImage.setOnClickListener {
             pickImageFromGallery()
         }
 
         binding.btnUpdate.setOnClickListener {
-            if (validateInputs()) {
+            if (validInputs()) {
                 updateUserProfile()
                 startActivity(Intent(this@UpdateProfileActivity, MainActivity::class.java))
             }
@@ -62,44 +78,53 @@ class UpdateProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateInputs(): Boolean {
-        if (binding.etFirstName.text.isNullOrEmpty() ||
-            binding.etLastName.text.isNullOrEmpty() ||
-            binding.etEmail.text.isNullOrEmpty() ||
-            binding.etPhoneNumber.text.isNullOrEmpty()) {
-            Toast.makeText(this, "Please fill in all the fields.", Toast.LENGTH_SHORT).show()
+
+
+    private fun validInputs():Boolean {
+
+        val firstNameValue = binding.etFirstName.text.toString().trim()
+        val lastNameValue = binding.etLastName.text.toString().trim()
+        val emailValue = binding.etEmail.text.toString().trim()
+        val phoneValue = binding.etPhoneNumber.text.toString().trim()
+
+
+        if (firstNameValue.isEmpty()){
+            binding.etFirstName.error = "First name is required"
+            binding.etFirstName.requestFocus()
             return false
         }
+        if (lastNameValue.isEmpty()){
+            binding.etLastName.error = "Last name is required"
+            binding.etLastName.requestFocus()
+            return false
+        }
+
+        if (!isValidEmail(emailValue)) {
+            binding.etEmail.error = "Enter a valid email"
+            binding.etEmail.requestFocus()
+            return false
+        }
+        if (!isValidPhone(phoneValue)) {
+            binding.etPhoneNumber.error = "Enter a valid 10-digit phone number"
+            binding.etPhoneNumber.requestFocus()
+            return false
+        }
+
         return true
     }
 
-//
-//    @SuppressLint("CheckResult", "SetTextI18n")
-//    private fun fetchUserDetails(userId: String) {
-//        RetrofitClient.instance.getUserDetails(userId)
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe({ response ->
-//                if (response.status == 200) {
-//                    val user = response.user
-//                  //  binding.tvFullName.text = "Name : ${user?.first_name} ${user?.middle_name} ${user?.last_name}"
-//                    binding.etFirstName.setText(user?.first_name) = "first Name : ${user.first_name}"
-//                    binding.etFirstName.text = "Email : ${user.first_name}"
-//                    binding.etLastName.text = "Email : ${user?.email}"
-//                    binding.etMiddleName.text = "Email : ${user?.email}"
-//                    binding.etEmail.text = "Email : ${user?.email}"
-//                    binding.etPhoneNumber.text = "Mobile : ${user?.phone_number}"
-//                   // binding.tvGender.text = "Gender : ${user?.gender}"
-//
-//                    Glide.with(this).load(user?.profile_image).into(binding.ivProfileImage)
-//                } else {
-//                    Toast.makeText(this, "Failed to fetch user details", Toast.LENGTH_SHORT).show()
-//                }
-//            }, { error ->
-//                Log.e("API_ERROR", "Error: ${error.message}")
-//                Toast.makeText(this, "Error fetching user details", Toast.LENGTH_SHORT).show()
-//            })
-//    }
+    private fun isValidEmail(email: String): Boolean {
+        val emailPattern = Pattern.compile(
+            "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\$"
+        )
+        return emailPattern.matcher(email).matches()
+    }
+
+    private fun isValidPhone(phone: String): Boolean {
+        return phone.length == 10 && phone.all { it.isDigit() }
+    }
+
+
 
     @SuppressLint("CheckResult")
     private fun updateUserProfile() {

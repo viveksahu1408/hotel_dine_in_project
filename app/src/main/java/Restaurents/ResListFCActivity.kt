@@ -1,15 +1,17 @@
-package com.example.practiceapp
+package Restaurents
 
 import AdapterClasses.Adapters.RestaurantFCAdapter
 import ApiClasses.RetrofitClient
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.practiceapp.R
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -17,6 +19,7 @@ class ResListFCActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter : RestaurantFCAdapter
+    private lateinit var searchView: SearchView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,11 +28,23 @@ class ResListFCActivity : AppCompatActivity() {
         setContentView(R.layout.activity_res_list_fcactivity)
 
         recyclerView = findViewById(R.id.recyfoodcategory)
+        searchView = findViewById(R.id.searchView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-      //  val restaurantId = intent.getStringExtra("restaurant_id")
-        val foodId = intent.getStringExtra("foodcategory_id")
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                adapter.filter.filter(query)
+                return false
+        }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter.filter(newText)
+                return true
+            }
+        })
 
+
+      //  val restaurantId = intent.getStringExtra("restaurant_id")
+     //   val foodId = intent.getStringExtra("foodcategory_id")
         fetchRestaurants()
 
     }

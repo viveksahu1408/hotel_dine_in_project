@@ -3,6 +3,9 @@ package com.example.practiceapp
 import AdapterClasses.Adapters.FoodCategoryAdapter
 import ApiClasses.RetrofitClient
 import AdapterClasses.Adapters.RestaurantAdapter
+import LogSignpackeg.LoginActivity
+import Restaurents.AddRestaurentActivity
+import Restaurents.AllResturentActivity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -79,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Total Restaurants", Toast.LENGTH_SHORT).show()
                 }
                 R.id.nav_change_pass -> {
-                    startActivity(Intent(this,AddRestaurentActivity::class.java))
+                    startActivity(Intent(this, AddRestaurentActivity::class.java))
                     Toast.makeText(this, "Change password", Toast.LENGTH_SHORT).show()
                 }
                 R.id.nav_notification -> {

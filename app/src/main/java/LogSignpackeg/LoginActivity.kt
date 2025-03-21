@@ -1,4 +1,4 @@
-package com.example.practiceapp
+package LogSignpackeg
 
 
 import android.annotation.SuppressLint
@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.practiceapp.databinding.ActivityLoginBinding
 import ApiClasses.RetrofitClient
+import com.example.practiceapp.MainActivity
+import com.example.practiceapp.SessionManager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.util.regex.Pattern

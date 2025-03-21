@@ -6,12 +6,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResListFCActivity">
+    tools:context="Restaurents.ResListFCActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:padding="10dp"
         android:background="@color/black"
@@ -23,12 +23,21 @@
             android:textColor="@color/Orange_flow"
             android:text="Category wise Food"
             android:textStyle="bold"
+            android:layout_marginTop="30dp"
             android:textSize="24dp"
             android:layout_gravity="center"
             />
 
 
     </LinearLayout>
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Search items..."
+        />
+
 
 
     <androidx.recyclerview.widget.RecyclerView

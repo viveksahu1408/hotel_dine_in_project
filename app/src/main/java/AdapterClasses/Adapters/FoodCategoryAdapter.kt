@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.practiceapp.R
-import com.example.practiceapp.ResListFCActivity
+import Restaurents.ResListFCActivity
 
 class FoodCategoryAdapter(
     private val context: Context,

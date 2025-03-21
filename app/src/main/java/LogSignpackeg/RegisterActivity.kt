@@ -1,4 +1,4 @@
-package com.example.practiceapp
+package LogSignpackeg
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,6 +11,9 @@ import ApiClasses.RetrofitClient
 import android.content.Intent
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import com.example.practiceapp.R
+import com.example.practiceapp.SessionManager
+import com.example.practiceapp.databinding.ActivityRegisterBinding
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -20,6 +23,7 @@ import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityRegisterBinding
     private lateinit var sessionManager: SessionManager
     private lateinit var firstName: EditText
     private lateinit var middleName: EditText
@@ -39,7 +43,10 @@ class RegisterActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+       // setContentView(R.layout.activity_register)
+
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         sessionManager = SessionManager(this)
         firstName = findViewById(R.id.etFirstName)
@@ -65,7 +72,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         btngotoRegister.setOnClickListener {
-            startActivity(Intent(this@RegisterActivity,LoginActivity::class.java))
+            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
         }
     }
 

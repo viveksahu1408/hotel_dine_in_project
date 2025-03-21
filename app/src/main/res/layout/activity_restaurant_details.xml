@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@drawable/gradient2_bg"
-    tools:context=".RestaurantDetailsActivity">
+    tools:context="Restaurents.RestaurantDetailsActivity">
 
 
         <TextView

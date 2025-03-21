@@ -1,14 +1,15 @@
-package com.example.practiceapp
+package Restaurents
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import ApiClasses.RetrofitClient
 import android.content.Intent
+import com.example.practiceapp.BookingActivity
+import com.example.practiceapp.R
 import com.example.practiceapp.databinding.ActivityRestaurantDetailsBinding
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

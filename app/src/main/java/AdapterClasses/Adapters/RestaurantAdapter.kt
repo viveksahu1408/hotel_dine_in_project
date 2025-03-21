@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 import com.example.practiceapp.R
-import com.example.practiceapp.RestaurantDetailsActivity
+import Restaurents.RestaurantDetailsActivity
 
 class RestaurantAdapter(
     private val context: Context,

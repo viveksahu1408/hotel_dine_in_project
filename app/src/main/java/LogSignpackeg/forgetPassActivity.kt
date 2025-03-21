@@ -1,4 +1,4 @@
-package com.example.practiceapp
+package LogSignpackeg
 
 import ApiClasses.RetrofitClient
 import android.annotation.SuppressLint
@@ -9,8 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.practiceapp.R
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -48,11 +47,11 @@ class forgetPassActivity : AppCompatActivity() {
         }
 
         btnBackLogin.setOnClickListener {
-            startActivity(Intent(this@forgetPassActivity,LoginActivity::class.java))
+            startActivity(Intent(this@forgetPassActivity, LoginActivity::class.java))
         }
 
         btnBackReg.setOnClickListener {
-            startActivity(Intent(this@forgetPassActivity,RegisterActivity::class.java))
+            startActivity(Intent(this@forgetPassActivity, RegisterActivity::class.java))
         }
 
 
@@ -67,7 +66,7 @@ class forgetPassActivity : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
-                startActivity(Intent(this@forgetPassActivity,LoginActivity::class.java))
+                startActivity(Intent(this@forgetPassActivity, LoginActivity::class.java))
                 Toast.makeText(this, " ${response.message}", Toast.LENGTH_SHORT).show()  // ✅ requireContext() use kiya
             },
                 { error ->

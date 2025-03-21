@@ -47,7 +47,7 @@ interface ApiService {
         @Part("gender") gender: RequestBody,
         @Part("password") password: RequestBody,
 
-        ): Single<ResponseBody> // RxJava2 Single<ResponseBody>
+        ): Single<ResponseBody>
 
 
     @FormUrlEncoded

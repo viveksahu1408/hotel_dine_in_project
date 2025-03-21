@@ -1,6 +1,7 @@
 package com.example.practiceapp
 
 import ApiClasses.RetrofitClient
+import LogSignpackeg.LoginActivity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -36,14 +37,18 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
 
-        // Get user ID and fetch details
+
         val userId = sessionManager.getUserId().toString()
         fetchUserDetails(userId)
         fetchUserAddress(userId)
 
-        binding.btnEditProfile.setOnClickListener {
-            startActivity(Intent(this, UpdateProfileActivity::class.java))
-        }
+//        binding.btnEditProfile.setOnClickListener {
+//            startActivity(Intent(this, UpdateProfileActivity::class.java))
+//
+//
+//        }
+
+
     }
 
     @SuppressLint("CheckResult", "SetTextI18n")
@@ -58,6 +63,19 @@ class ProfileActivity : AppCompatActivity() {
                     binding.tvEmail.text = "Email : ${user?.email}"
                     binding.tvPhoneNumber.text = "Mobile : ${user?.phone_number}"
                     binding.tvGender.text = "Gender : ${user?.gender}"
+
+                    binding.btnEditProfile.setOnClickListener {
+                        val intent = Intent(this, UpdateProfileActivity::class.java).apply {
+                            putExtra("first_name", user?.first_name)
+                            putExtra("last_name", user?.last_name)
+                            putExtra("middle_name", user?.middle_name)
+                            putExtra("email", user?.email)
+                            putExtra("phone_number", user?.phone_number)
+                        //    putExtra("profile_image", user?.profile_image) // Optional, if you want to pass the image URL
+                        }
+                        startActivity(intent)
+                    }
+
 
                     Glide.with(this).load(user?.profile_image).into(binding.ivProfileImage)
                 } else {

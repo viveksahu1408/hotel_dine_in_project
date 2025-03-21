@@ -2,6 +2,7 @@ package ApiClasses
 
 
 
+import ModalClasses.AddRestaurantResponse
 import ModalClasses.AllRestaurantResponse
 import ModalClasses.BookingApiResponse
 import ModalClasses.BookingResponse
@@ -211,7 +212,20 @@ interface ApiService {
     @POST("drop_down_controller.php")
     fun getDropDownData(@Field("hotel_dine_in") dropdown: String): Single<DropDownResponse>
 
-
+    @FormUrlEncoded
+    @POST("add_restaurant.php")
+    fun addRestaurant(
+        @Field("hotel_dine_in") hotelDineIn: String = "add_restaurant",
+        @Field("restaurant_name") restaurantName: String,
+        @Field("restaurant_email") restaurantEmail: String,
+        @Field("restaurant_phone_number") restaurantPhoneNumber: String,
+        @Field("restaurant_licence_no") restaurantLicenceNo: String,
+        @Field("restaurant_Price") restaurantPrice: String,
+        @Field("restaurant_description") restaurantDescription: String,
+        @Field("restaurant_food_type") restaurantFoodType: String,
+        @Field("restaurant_open_time") restaurantOpenTime: String,
+        @Field("restaurant_close_time") restaurantCloseTime: String
+    ): Single<AddRestaurantResponse>
 
 
 }

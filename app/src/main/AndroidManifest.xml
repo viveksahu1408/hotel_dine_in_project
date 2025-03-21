@@ -25,9 +25,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
-            android:screenOrientation="portrait"
+            android:name=".AddRestaurentActivity"
             android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".forgetPassActivity"
             android:exported="false"

@@ -45,9 +45,9 @@ data class NotificationItem(
 	@SerializedName("title") val title: String,
 	@SerializedName("message") val message: String,
 	@SerializedName("created_at") val date: String,
+)
 
-//	//val id: String,
-//	val title: String,
-//	val message: String,
-//	val date: String
+data class AddRestaurantResponse(
+	val status: Int,
+	val message: String
 )

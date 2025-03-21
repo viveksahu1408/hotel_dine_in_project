@@ -74,7 +74,7 @@ class AddRestaurentActivity : AppCompatActivity() {
             .subscribe({ response ->
                 Toast.makeText(this, response.message, Toast.LENGTH_LONG).show()
             }, { error ->
-                // API failure response
+
                 Toast.makeText(this, "Failed: ${error.message}", Toast.LENGTH_LONG).show()
             })
 

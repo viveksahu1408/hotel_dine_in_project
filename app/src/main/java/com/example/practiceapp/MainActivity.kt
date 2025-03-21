@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Total Restaurants", Toast.LENGTH_SHORT).show()
                 }
                 R.id.nav_change_pass -> {
+                    startActivity(Intent(this,AddRestaurentActivity::class.java))
                     Toast.makeText(this, "Change password", Toast.LENGTH_SHORT).show()
                 }
                 R.id.nav_notification -> {
